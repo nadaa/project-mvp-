@@ -95,7 +95,8 @@ onChange (e) {
       	<h4>Choose a destination</h4> 
       	<input type="text" value= {this.state.interest} onChange={this.onChange}/>
         <button onClick={this.search}>Show places</button>
-
+	<br/>
+	<br/>
         <div>
         {this.state.places.map((place,i)=>
               <div class='Place' key={i}>{place.placeName}</div>
