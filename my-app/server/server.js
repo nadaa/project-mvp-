@@ -51,7 +51,7 @@ app.post('/api/places',function(req,res){
 		//console.log(data)
 		//if(err){console.log("error")}
 
-		Interest.save(data);
+		Interest.save(placeName,data);
 		res.send(data);
 
 	})

@@ -13,9 +13,9 @@ db.once('open', function() {
 
 var interestSchema=mongoose.Schema({
 
-// interest:{
-// 	type:String
-// },
+interest:{
+type:String
+},
 placeName:{
 	type:String
 }
@@ -29,18 +29,21 @@ placeName:{
 
 })
 
+var interestReceived;
+
 var Interest=module.exports=mongoose.model('Interest',interestSchema);
 
 module.exports.getInterests=function(callback,limit){
-	Interest.find(callback).limit(limit);
+	Interest.find(callback).where('interest').equals(interestReceived);
 }
 
 
-module.exports.save=function(data){
-	console.log(data)
+module.exports.save=function(intPlace,data){
+	interestReceived=intPlace;
+	//console.log(data)
 	for(var i=0;i<data.results.length;i++){
 		//console.log({placeName:data.results[i].name)
-		var interest=new Interest({placeName:data.results[i].name,photos:data.results[i].photos});
+		var interest=new Interest({interest:intPlace,placeName:data.results[i].name});
 		interest.save(function(err,interest){
 			if(err) console.log("error occured");
 			else console.log("data saved");
