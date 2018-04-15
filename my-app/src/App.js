@@ -18,7 +18,6 @@ constructor(props) {
 
 }
 
-
   search () {
     
     var that=this;
@@ -83,7 +82,6 @@ onChange (e) {
     });
 
   }
-
 
   render() {
     console.log(this.state.places)

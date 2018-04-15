@@ -17,8 +17,8 @@ interest:{
 type:String
 },
 placeName:{
-	type:String,
-	unique:true
+	type:String
+	
 }
 
 
