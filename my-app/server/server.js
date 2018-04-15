@@ -10,6 +10,8 @@ var google=require('../helpers/google-api.js');
 
 var bodyParser=require('body-parser');
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 
@@ -38,8 +40,8 @@ app.get('/api/places',function(req,res){
 
 
 app.post('/api/places',function(req,res){
-	var placeName=req.body.name;
-	// console.log(placeName)
+	var placeName=req.body.place;
+	 //console.log(placeName)
 	//var photos=req.body.photos;
 	var user=req.body.user;
 
@@ -50,7 +52,7 @@ app.post('/api/places',function(req,res){
 		//if(err){console.log("error")}
 
 		Interest.save(data);
-		res.json(data);
+		res.send(data);
 
 	})
 
