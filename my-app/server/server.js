@@ -20,11 +20,6 @@ app.use(express.static('./build'))
 
 
 
-// app.get('/',function(req,res){
-// 	res.send("server running")
-// });
-
-
 app.get('/api/places',function(req,res){
 
 	Interest.getInterests(function(err,interests){
@@ -41,15 +36,13 @@ app.get('/api/places',function(req,res){
 
 app.post('/api/places',function(req,res){
 	var placeName=req.body.place;
-	 //console.log(placeName)
-	//var photos=req.body.photos;
+	 
 	var user=req.body.user;
 
 // call the fetchPlaces helper function
 
 	google.fetchPlaces(placeName,function(data){
-		//console.log(data)
-		//if(err){console.log("error")}
+		
 
 		Interest.save(placeName,data);
 		res.send(data);
@@ -58,22 +51,6 @@ app.post('/api/places',function(req,res){
 
 
 })
-
-	// var place = new Interest({name:placeName,photos:photos,user:user});
-	// place.save(function(err,place){
-	// 	if (err) {
-	// 		return console.error(err);
-	// 	}
-
-	// 	else{
-
-	// 		res.send()
-	// 	}
-	// })
-	
-
-
-
 
 app.listen(process.env.PORT||8000);
 

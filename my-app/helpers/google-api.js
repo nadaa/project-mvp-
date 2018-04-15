@@ -15,17 +15,11 @@ module.exports.fetchPlaces=function(interest,callback){
 request(options.url,function(req,res,body){
 	let data=JSON.parse(body);
 
-	//console.log(interest);
+
 	callback(data);
 } )
 }
 
-
-// module.exports.fetchPlaces('amman',function(data){
-
-// 	console.log(data)
-// })
-// //module.exports=fetchPlaces;
 
 
 

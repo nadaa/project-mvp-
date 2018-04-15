@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.Place{
+border-color:gray;
+color: blue;
+text-align: center;
+margin:5;
+
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

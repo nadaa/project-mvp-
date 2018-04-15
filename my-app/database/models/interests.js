@@ -7,8 +7,8 @@ var db=mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-	console.log("opened db")
-  // we're connected!
+	console.log("success db open")
+  
 });
 
 var interestSchema=mongoose.Schema({
@@ -17,15 +17,10 @@ interest:{
 type:String
 },
 placeName:{
-	type:String
+	type:String,
+	unique:true
 }
-// photos:{
-// 	type:[String]
-// },
 
-// user:{
-// 	type:String
-// }
 
 })
 

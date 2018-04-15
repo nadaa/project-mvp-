@@ -20,12 +20,10 @@ constructor(props) {
 
 
   search () {
-    //console.log(this)
-    //console.log(`${term} was searched`);
-    // TODO
+    
     var that=this;
     var place=this.state.interest;
-    //console.log(place)
+    
     $.ajax({
       type:'POST',
       url:'/api/places',
@@ -34,6 +32,7 @@ constructor(props) {
       data:{place:place},
 
       success:function (data) {
+
          // retrive the data send GET
          that.getPlaces(); 
 
@@ -79,7 +78,6 @@ constructor(props) {
   }
 
 onChange (e) {
-  //console.log(this)
       this.setState({
       interest: e.target.value
     });
@@ -102,8 +100,7 @@ onChange (e) {
 
         <div>
         {this.state.places.map((place,i)=>
-              <div key={i}>{place.placeName}</div>
-
+              <div class='Place' key={i}>{place.placeName}</div>
             )}
         
 
